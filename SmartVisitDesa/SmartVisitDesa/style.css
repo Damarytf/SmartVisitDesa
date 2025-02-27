@@ -1,0 +1,74 @@
+/* Menghilangkan margin dan padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Gambar full screen */
+img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay untuk efek brightness */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.646); /* Efek redup transparan */
+}
+
+/* Konten dengan padding */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.863); /* Lapisan transparan */
+    border-radius: 10px;
+}
+
+/* Styling untuk formulir */
+testimoniForm {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#testimoniForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#testimoniForm input[type="text"],
+#testimoniForm select,
+#testimoniForm textarea {
+    width: calc(100% - 12px); /* Mengurangi lebar padding */
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Memastikan padding dan border tidak menambah lebar elemen */
+}
+
+#testimoniForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#testimoniForm button:hover {
+    background-color: #45a049;
+}

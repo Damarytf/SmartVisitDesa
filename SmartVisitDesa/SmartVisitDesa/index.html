@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimoni Wisatawan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="C:\Users\Dinar Sekar\Downloads\desa3.jpg">
+    <div class="overlay"></div>
+        <div class="content">
+            <h1>Testimoni Wisatawan</h1>
+            <p>Silahkan Berikan Komentar dan rating Desa Wisatamu.</p>
+            <form id="testimoniForm">
+                <label for="nama">Nama:</label><br>
+                <input type="text" id="nama" name="nama" required><br><br>
+                <label for="rating">Rating:</label><br>
+                <select id="rating" name="rating" required>
+                    <option value="5">5 Bintang (Sangat Baik)</option>
+                    <option value="4">4 Bintang (Baik)</option>
+                    <option value="3">3 Bintang (Cukup)</option>
+                    <option value="2">2 Bintang (Kurang)</option>
+                    <option value="1">1 Bintang (Sangat Kurang)</option>
+                </select><br><br>
+                <label for="komentar">Komentar:</label><br>
+                <textarea id="komentar" name="komentar" rows="4" cols="50" required></textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+</body>
+</html>
