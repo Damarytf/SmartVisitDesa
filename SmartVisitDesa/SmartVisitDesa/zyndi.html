@@ -1,82 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartVisitDesa</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { max-width: 600px; margin: auto; }
-        input, textarea, button { display: block; width: 100%; margin-top: 10px; padding: 8px; }
-        .destination { display: flex; justify-content: space-between; margin-top: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
-        .edit, .delete { cursor: pointer; margin-left: 5px; }
-    </style>
+    <title>Form Daftar Destinasi Smart Visit Desa</title>
+    <link rel="stylesheet" href="zyndi.css">
 </head>
 <body>
-    <div class="container">
-        <h1>SmartVisitDesa</h1>
-        <h2>Kelola Destinasi Wisata</h2>
-        <input type="text" id="name" placeholder="Nama Destinasi">
-        <textarea id="description" placeholder="Deskripsi Destinasi"></textarea>
-        <button onclick="addOrUpdateDestination()">Tambah Destinasi</button>
+    <img src="desa3.jpg" alt="Pemandangan Desa">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="container">
+            <h1>Form Destinasi Wisata</h1>
+            <form id="destinasiForm">
 
-        <h2>Daftar Destinasi</h2>
-        <div id="destinationList"></div>
+                <div class="form-group">
+                    <label for="nama">Nama Destinasi :</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama destinasi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Lokasi">Lokasi Destinasi :</label>
+                    <span class>Provinsi</span>
+                    <select id="Lokasi" name="Lokasi" required>
+                        <option value="">- Pilih -</option>
+                        <option value="Jawa Timur">Jawa Timur</option>
+                        <option value="Jawa Tengah">Jawa Tengah</option>
+                        <option value="Jawa Barat">Jawa Barat</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fasilitas">Fasilitas :</label>
+                    <input type="text" id="fasilitas" name="fasilitas" placeholder="Contoh: Toilet, Parkir, Wifi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi Destinasi :</label>
+                    <textarea id="deskripsi" name="deskripsi" rows="4" placeholder="Daya tarik utama destinasi..." required></textarea>
+                </div>
+
+                <button type="submit">Daftar</button>
+            </form>
+        </div>
     </div>
-
-    <script>
-        let destinations = [];
-        let editingIndex = null;
-
-        function addOrUpdateDestination() {
-            let name = document.getElementById("name").value.trim();
-            let description = document.getElementById("description").value.trim();
-            
-            if (!name || !description) {
-                alert("Nama dan deskripsi harus diisi!");
-                return;
-            }
-
-            if (editingIndex !== null) {
-                destinations[editingIndex] = { name, description };
-                editingIndex = null;
-            } else {
-                destinations.push({ name, description });
-            }
-
-            document.getElementById("name").value = "";
-            document.getElementById("description").value = "";
-
-            renderDestinations();
-        }
-
-        function editDestination(index) {
-            document.getElementById("name").value = destinations[index].name;
-            document.getElementById("description").value = destinations[index].description;
-            editingIndex = index;
-        }
-
-        function deleteDestination(index) {
-            destinations.splice(index, 1);
-            renderDestinations();
-        }
-
-        function renderDestinations() {
-            let list = document.getElementById("destinationList");
-            list.innerHTML = "";
-
-            destinations.forEach((destination, index) => {
-                list.innerHTML += `
-                    <div class="destination">
-                        <span>${destination.name} - ${destination.description}</span>
-                        <div>
-                            <span class="edit" onclick="editDestination(${index})">✏️</span>
-                            <span class="delete" onclick="deleteDestination(${index})">❌</span>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-    </script>
 </body>
 </html>

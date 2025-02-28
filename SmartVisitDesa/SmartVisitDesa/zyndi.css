@@ -1,82 +1,99 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4; /* Latar belakang abu-abu muda */
-    line-height: 1.6;
+/* Reset margin dan padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih modern */
 }
 
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    color: #333;
-    text-align: center;
-}
-
-input, textarea, button {
+/* Gambar latar belakang full screen */
+img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     display: block;
-    width: calc(100% - 18px); /* Mengurangi padding */
-    margin: 10px 0;
-    padding: 9px; /* Meningkatkan padding sedikit */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box; /* Pastikan padding dan border tidak menambah lebar elemen */
 }
 
-textarea {
-    resize: vertical; /* Izinkan textarea diubah ukurannya secara vertikal */
+/* Overlay untuk efek redup */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Transparansi sedikit lebih gelap */
 }
 
-button {
-    background-color: #007bff; /* Warna biru untuk tombol */
+/* Konten form dengan latar transparan */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #333;
+    padding: 30px; /* Padding lebih besar */
+    background: rgba(255, 255, 255, 0.95); /* Latar lebih terang dan sedikit lebih transparan */
+    border-radius: 12px; /* Border radius lebih besar */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow lebih halus */
+    width: 90%;
+    max-width: 450px; /* Lebar maksimum lebih besar */
+}
+
+/* Styling untuk formulir */
+#destinasiForm {
+    margin-top: 25px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+#destinasiForm label {
+    display: block;
+    font-weight: 600; /* Font weight lebih tebal */
+    margin-bottom: 8px;
+    color: #444; /* Warna label lebih gelap */
+}
+
+/* Input dan textarea styling */
+#destinasiForm input[type="text"],
+#destinasiForm textarea {
+    width: calc(100% - 20px); /* Mengurangi padding */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Border lebih halus */
+    border-radius: 8px; /* Border radius lebih besar */
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #555; /* Warna teks input lebih gelap */
+}
+
+/* Tombol */
+#destinasiForm button {
+    width: 100%;
+    background-color: #3498db; /* Warna biru yang lebih cerah */
     color: white;
+    padding: 14px;
     border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600; /* Font weight lebih tebal */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #0056b3; /* Warna biru lebih gelap saat hover */
+#destinasiForm button:hover {
+    background-color: #2980b9; /* Warna biru lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek hover sedikit naik */
 }
 
-.destination {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    border-bottom: 1px solid #eee; /* Sedikit lebih ringan */
-    padding-bottom: 5px;
-}
-
-.edit, .delete {
-    cursor: pointer;
-    margin-left: 5px;
-    font-size: 1.2em; /* Sedikit lebih besar untuk ikon */
-}
-
-.edit:hover, .delete:hover {
-    opacity: 0.8;
-}
-
-#destinationList {
-    margin-top: 20px;
-}
-
-/* Responsif untuk layar yang lebih kecil */
+/* Responsif untuk layar kecil */
 @media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-
-    input, textarea, button {
-        font-size: 14px;
-        padding: 7px;
+    .content {
+        padding: 20px;
     }
 }
