@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartVisitDesa</title>
+    <link rel="stylesheet" href="Zuna.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("reservationForm");
+            const reservationsList = document.getElementById("reservationsList");
+            let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
+
+            function updateReservations() {
+                reservationsList.innerHTML = "";
+                reservations.forEach((reservation, index) => {
+                    const item = document.createElement("li");
+                    item.innerHTML = `${reservation.nama} - ${reservation.kontak} - ${reservation.paket} 
+                        <button onclick="deleteReservation(${index})">Hapus</button>`;
+                    reservationsList.appendChild(item);
+                });
+                localStorage.setItem("reservations", JSON.stringify(reservations));
+            }
+
+            window.deleteReservation = function(index) {
+                reservations.splice(index, 1);
+                updateReservations();
+            };
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const reservation = {
+                    nama: document.getElementById("nama").value,
+                    kontak: document.getElementById("kontak").value,
+                    tanggal_pemesanan: document.getElementById("tanggal_pemesanan").value,
+                    tanggal_kunjungan: document.getElementById("tanggal_kunjungan").value,
+                    jumlah_peserta: document.getElementById("jumlah_peserta").value,
+                    paket: document.querySelector('input[name="paket"]:checked')?.value || "Kustom: " + document.getElementById("kustom").value
+                };
+                reservations.push(reservation);
+                updateReservations();
+                form.reset();
+            });
+            updateReservations();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src = "logoweb.png"
+            <span>SmartVisitDesa</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profil Desa</a></li>
+                <li><a href="#">Infografis</a></li>
+                <li><a href="#">Berita</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang<br>Website Resmi SmartVisitDesa</h1>
+            <p>Sumber informasi terbaru tentang pemerintahan di SmartVisitDesa</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <h2>Form Pemesanan Paket Wisata Smart Visit Desa</h2>
+        <form id="reservationForm">
+            <h3>A. DATA PEMESAN</h3>
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required>
+            
+            <label for="kontak">Email / Nomor HP:</label>
+            <input type="text" id="kontak" name="kontak" required>
+            
+            <label for="tanggal_pemesanan">Tanggal Pemesanan:</label>
+            <input type="date" id="tanggal_pemesanan" name="tanggal_pemesanan" required>
+            
+            <h3>B. DETAIL PEMESANAN</h3>
+            <label for="tanggal_kunjungan">Tanggal Kunjungan:</label>
+            <input type="date" id="tanggal_kunjungan" name="tanggal_kunjungan" required>
+            
+            <label for="jumlah_peserta">Jumlah Peserta:</label>
+            <input type="number" id="jumlah_peserta" name="jumlah_peserta" required>
+            
+            <label>Pilihan Paket Wisata:</label>
+            <input type="radio" id="paketA" name="paket" value="A"> Paket A (Wisata Alam)<br>
+            <input type="radio" id="paketB" name="paket" value="B"> Paket B (Wisata Budaya)<br>
+            <input type="radio" id="paketC" name="paket" value="C"> Paket C (Wisata Kuliner)<br>
+                                
+            <h3>C. PREFERENSI & KEBUTUHAN KHUSUS</h3>
+            <label for="permintaan">Permintaan Khusus:</label>
+            <textarea id="permintaan" name="permintaan" rows="3"></textarea>
+            
+            <label for="catatan">Catatan Tambahan:</label>
+            <textarea id="catatan" name="catatan" rows="3"></textarea>
+            
+            <h3>D. KONFIRMASI</h3>
+            <label>
+                <input type="checkbox" id="konfirmasi" name="konfirmasi" required>
+                Saya menyetujui syarat dan ketentuan pemesanan.
+            </label>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <div class="container">
+        <h2>Daftar Pemesanan</h2>
+        <ul id="reservationsList"></ul>
+    </div>
+</body>
+</html>
