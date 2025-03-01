@@ -7,26 +7,61 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="C:\Users\Dinar Sekar\Downloads\desa3.jpg">
+    <img src="C:\Users\Dinar Sekar\Downloads\desa3.jpg" alt="Background Desa Wisata">
     <div class="overlay"></div>
-        <div class="content">
-            <h1>Testimoni Wisatawan</h1>
-            <p>Silahkan Berikan Komentar dan rating Desa Wisatamu.</p>
-            <form id="testimoniForm">
-                <label for="nama">Nama:</label><br>
-                <input type="text" id="nama" name="nama" required><br><br>
-                <label for="rating">Rating:</label><br>
-                <select id="rating" name="rating" required>
-                    <option value="5">5 Bintang (Sangat Baik)</option>
-                    <option value="4">4 Bintang (Baik)</option>
-                    <option value="3">3 Bintang (Cukup)</option>
-                    <option value="2">2 Bintang (Kurang)</option>
-                    <option value="1">1 Bintang (Sangat Kurang)</option>
-                </select><br><br>
-                <label for="komentar">Komentar:</label><br>
-                <textarea id="komentar" name="komentar" rows="4" cols="50" required></textarea><br><br>
-                <button type="submit">Submit</button>
-            </form>
+    <div class="content">
+        <div class="image-container">
+            <img src="C:\Users\Dinar Sekar\Downloads\logoweb.png" alt="Logo Web">
         </div>
+        <h1>Testimoni Wisatawan</h1>
+        <p>Silahkan Berikan Komentar dan rating Desa Wisatamu.</p>
+        <form id="testimoniForm">
+            <div class="form-row">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-row">
+                <label for="desa">Desa Wisata:</label>
+                <select id="desa" name="desa" required>
+                    <option value="desaA">Desa A</option>
+                    <option value="desaB">Desa B</option>
+                    <option value="desaC">Desa C</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Rating:</label>
+                <div class="rating-container">
+                    <span>
+                        <input type="radio" id="rating5" name="rating" value="5" required>
+                        <label for="rating5"> Sangat Baik </label>
+                    </span>
+                    <span>
+                        <input type="radio" id="rating4" name="rating" value="4" required>
+                        <label for="rating4">Baik</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="rating3" name="rating" value="3" required>
+                        <label for="rating3">Cukup</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="rating2" name="rating" value="2" required>
+                        <label for="rating2">Kurang</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="rating1" name="rating" value="1" required>
+                        <label for="rating1">Sangat Kurang</label>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <label for="komentar">Komentar:</label><br>
+            <textarea id="komentar" name="komentar" rows="4" cols="50" required></textarea><br><br>
+            <div class="button-container">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
