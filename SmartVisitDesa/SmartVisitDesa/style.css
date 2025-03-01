@@ -15,6 +15,18 @@ img {
     display: block;
 }
 
+/* Styling untuk logo web */
+.image-container {
+    text-align: center; /* Menengahkan logo */
+    margin-bottom: 20px; /* Jarak antara logo dan teks */
+}
+
+.image-container img {
+    max-width: 60px; /* Lebar maksimum logo */
+    height: auto;
+    display: inline-block; /* Agar margin bekerja */
+}
+
 /* Overlay untuk efek brightness */
 .overlay {
     position: absolute;
@@ -39,8 +51,8 @@ img {
 }
 
 /* Styling untuk formulir */
-testimoniForm {
-    margin-top: 20px;
+#testimoniForm {
+    margin-top: 5px;
     text-align: left;
 }
 
@@ -71,4 +83,34 @@ testimoniForm {
 
 #testimoniForm button:hover {
     background-color: #45a049;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.rating-container span {
+    margin-right: 10px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    text-align: left;
+}
+
+.form-row input[type="text"] {
+    width: 100%;
+}
+
+/* Menengahkan tombol submit */
+.button-container {
+    text-align: center;
 }
