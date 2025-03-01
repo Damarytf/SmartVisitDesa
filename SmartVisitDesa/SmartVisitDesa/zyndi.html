@@ -7,39 +7,44 @@
     <link rel="stylesheet" href="zyndi.css">
 </head>
 <body>
-    <img src="desa3.jpg" alt="Pemandangan Desa">
-    <div class="overlay"></div>
+    <div class="background">
+        <img src="desa3.jpg" alt="Latar Belakang Desa">
+        <div class="overlay"></div>
+    </div>
     <div class="content">
         <div class="container">
             <h1>Form Destinasi Wisata</h1>
             <form id="destinasiForm">
-
                 <div class="form-group">
                     <label for="nama">Nama Destinasi :</label>
                     <input type="text" id="nama" name="nama" placeholder="Masukkan nama destinasi" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="Lokasi">Lokasi Destinasi :</label>
-                    <span class>Provinsi</span>
-                    <select id="Lokasi" name="Lokasi" required>
-                        <option value="">- Pilih -</option>
-                        <option value="Jawa Timur">Jawa Timur</option>
-                        <option value="Jawa Tengah">Jawa Tengah</option>
-                        <option value="Jawa Barat">Jawa Barat</option>
-                </select>
+                    <label for="lokasi">Lokasi Destinasi :</label>
+                    <input type="text" id="lokasi" name="lokasi" placeholder="Masukkan lokasi" required>
                 </div>
-
+                <div class="form-group">
+                    <label for="kategori">Kategori Destinasi :</label>
+                    <select id="kategori" name="kategori" required>
+                        <option value="">- Pilih Kategori -</option>
+                        <option value="Alam">Alam</option>
+                        <option value="Budaya">Budaya</option>
+                        <option value="Sejarah">Sejarah</option>
+                        <option value="Edukasi">Edukasi</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="fasilitas">Fasilitas :</label>
-                    <input type="text" id="fasilitas" name="fasilitas" placeholder="Contoh: Toilet, Parkir, Wifi" required>
+                    <input type="text" id="fasilitas" name="fasilitas" placeholder="Contoh : Toilet, Parkir, Wifi" required>
                 </div>
-
+                <div class="form-group">
+                    <label for="kontakPengelola">Kontak Pengelola :</label>
+                    <input type="text" id="kontakPengelola" placeholder="Contoh : 0812-3456-7890" required>
+                </div>
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi Destinasi :</label>
                     <textarea id="deskripsi" name="deskripsi" rows="4" placeholder="Daya tarik utama destinasi..." required></textarea>
                 </div>
-
                 <button type="submit">Daftar</button>
             </form>
         </div>
