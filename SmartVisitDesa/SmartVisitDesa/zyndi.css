@@ -1,122 +1,172 @@
-/* Reset margin dan padding */
-body, html {
+/* Reset Default Margin & Padding */
+* {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Gambar latar belakang full screen */
-img {
+/* Styling untuk Body dan HTML */
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+/* Gambar Latar Belakang */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.background img {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
     display: block;
 }
 
-/* Overlay untuk efek redup */
+/* Overlay untuk Efek Redup */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Transparansi sedikit dikurangi */
+    background: rgba(0, 0, 0, 0.6);
 }
 
-/* Konten form dengan latar transparan */
+/* Konten Form */
 .content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #333;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.92); /* Sedikit lebih transparan */
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 380px; /* Dikurangi agar tidak terlalu lebar */
+    color: #083a4d;
+    padding: 30px;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    width: 95%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-/* Styling untuk formulir */
+/* Hide scrollbar */
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Styling untuk Formulir */
 #destinasiForm {
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: left;
 }
 
-/* Grup form */
+/* Grup Form */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* Label */
-#destinasiForm label {
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #083a4d;
     display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: #444;
+    font-size: 16px;
 }
 
-/* Input, textarea, dan select styling */
-#destinasiForm input[type="text"],
-#destinasiForm textarea,
-#destinasiForm select {
+/* Input, Select, dan Textarea */
+input, textarea, select {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #ccc; /* Tambahkan garis bawah */
-    border-radius: 0; /* Hilangkan border radius */
-    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
     font-size: 14px;
-    color: #333;
+    color: #0b0303;
     background-color: white;
+    box-sizing: border-box;
     appearance: none;
     cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Tambah efek saat focus */
-#destinasiForm input[type="text"]:focus,
-#destinasiForm textarea:focus,
-#destinasiForm select:focus {
-    border-bottom: 2px solid #0e6aa7; /* Warna biru saat fokus */
-    outline: none;
+/* Placeholder untuk select */
+select option:first-child {
+    color: #aaa;
+    font-style: italic;
 }
 
-/* Tombol */
-#destinasiForm button {
+/*Tampilan select*/
+select {
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px;
+}
+
+/* Input */
+input [type="text"] {
     width: 100%;
-    background-color: #0e6aa7;
-    color: white;
     padding: 12px;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 600;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #000000;
+    background-color: white;
+    box-sizing: border-box;
+    appearance: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#destinasiForm button:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+/* Hover dan Fokus */
+input:focus, textarea:focus, select:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 8px rgba(48, 145, 249, 0.5);
 }
 
-/* Untuk Safari */
+/* Tombol Submit */
+button {
+    width: 100%;
+    background: #0056b3;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #00408a;
+    transform: translateY(-3px);
+}
+
+/* Safari Compatibility */
 @supports (-webkit-appearance: none) {
-    #destinasiForm select {
+    select {
         -webkit-appearance: none;
         -moz-appearance: none;
     }
 }
 
-/* Responsif untuk layar kecil */
+/* Responsif untuk Layar Kecil */
 @media (max-width: 600px) {
     .content {
         width: 95%;
-        padding: 15px;
+        padding: 25px;
     }
 }

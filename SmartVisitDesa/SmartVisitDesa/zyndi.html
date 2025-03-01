@@ -7,22 +7,32 @@
     <link rel="stylesheet" href="zyndi.css">
 </head>
 <body>
+
     <div class="background">
         <img src="desa3.jpg" alt="Latar Belakang Desa">
         <div class="overlay"></div>
     </div>
+    
     <div class="content">
         <div class="container">
             <h1>Form Destinasi Wisata</h1>
             <form id="destinasiForm">
+
+                <div class="form-group">
+                    <label for="password"> Password </label>
+                    <input type="password" id="password" password="password" required>
+                </div>
+
                 <div class="form-group">
                     <label for="nama">Nama Destinasi :</label>
-                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama destinasi" required>
+                    <input type="text" id="nama" name="nama" required>
                 </div>
+
                 <div class="form-group">
                     <label for="lokasi">Lokasi Destinasi :</label>
-                    <input type="text" id="lokasi" name="lokasi" placeholder="Masukkan lokasi" required>
+                    <input type="text" id="lokasi" name="lokasi" required>
                 </div>
+
                 <div class="form-group">
                     <label for="kategori">Kategori Destinasi :</label>
                     <select id="kategori" name="kategori" required>
@@ -33,18 +43,21 @@
                         <option value="Edukasi">Edukasi</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="fasilitas">Fasilitas :</label>
-                    <input type="text" id="fasilitas" name="fasilitas" placeholder="Contoh : Toilet, Parkir, Wifi" required>
+                    <select id="fasilitas" name="fasilitas" required>
+                        <option value="">- Kategori Fasilitas -</option>
+                        <option value="Fasilitas"> Fasilitas Umum </option>
+                        <option value="Fasilitas"> Fasilitas Pribadi </option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="kontakPengelola">Kontak Pengelola :</label>
-                    <input type="text" id="kontakPengelola" placeholder="Contoh : 0812-3456-7890" required>
-                </div>
+
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi Destinasi :</label>
-                    <textarea id="deskripsi" name="deskripsi" rows="4" placeholder="Daya tarik utama destinasi..." required></textarea>
+                    <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
                 </div>
+
                 <button type="submit">Daftar</button>
             </form>
         </div>
